@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.mastermind.org.entities.Book;
 import com.mastermind.org.entities.Category;
-import com.mastermind.org.playload.BookDto;
+import com.mastermind.org.playload.Dto.BookDto;
 import com.mastermind.org.repository.BookRepo;
 import com.mastermind.org.repository.CategoryRepo;
 import com.mastermind.org.service.BookService;

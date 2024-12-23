@@ -2,7 +2,7 @@ package com.mastermind.org.service;
 
 import java.util.List;
 
-import com.mastermind.org.playload.BookDto;
+import com.mastermind.org.playload.Dto.BookDto;
 
 public interface BookService {
 

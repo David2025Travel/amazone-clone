@@ -1,4 +1,4 @@
-package com.mastermind.org.playload;
+package com.mastermind.org.playload.Dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonProperty.Access;

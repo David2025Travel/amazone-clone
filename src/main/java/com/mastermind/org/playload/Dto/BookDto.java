@@ -1,4 +1,4 @@
-package com.mastermind.org.playload;
+package com.mastermind.org.playload.Dto;
 
 import java.time.LocalDate;
 
