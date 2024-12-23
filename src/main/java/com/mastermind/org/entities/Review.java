@@ -39,7 +39,7 @@ public class Review {
 	private int rating ;
 	
 	@Enumerated(EnumType.STRING)
-	private ReviewStatus status = ReviewStatus.PENDING;
+	private ReviewStatus status ;
 	
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "book_id", nullable = false)
@@ -48,4 +48,8 @@ public class Review {
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "client_id", nullable = false)
 	private Client client ;
+	
+	public Review() {
+		this.status = ReviewStatus.PENDING ;
+	}
 }

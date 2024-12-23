@@ -22,14 +22,14 @@ public abstract class User {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id ;
 	
-	@Column(nullable = false)
+	
 	private String name ;
 	
 	
-	@Column(nullable = false, unique = true)
+	@Column(unique = true)
 	private String email ;
 	
-	@Column(nullable = false)
+	
 	@JsonProperty(access = Access.WRITE_ONLY)
 	private String password ;
 	
