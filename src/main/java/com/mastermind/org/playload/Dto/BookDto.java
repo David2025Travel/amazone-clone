@@ -31,5 +31,7 @@ public class BookDto {
     
     private String imagePath;
     
+    private String nameCategory ;
+    
     private int totalPages;
 }

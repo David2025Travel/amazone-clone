@@ -36,10 +36,7 @@ public class Order {
     private double totalAmount; 
 
     @Column(nullable = false)
-    private LocalDateTime orderDate;  
-
-    @Column(nullable = false)
-    private String shippingAddress;  
+    private LocalDateTime orderDate;    
 
     public Order() {
         this.orderDate = LocalDateTime.now();

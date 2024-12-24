@@ -30,15 +30,10 @@ public class BookServiceImpl implements BookService {
 		this.mapper = mapper ;
 		this.bookRepo = bookRepo ;
 		
-		this.mapper.addMappings(new PropertyMap<Book, BookDto>() {
-			@Override
-			protected void configure() {
-				skip(source.getCategory());
-				skip(source.getReviews());
-				
-			}
-		});
+		mapping();
+		
 	}
+	
 	
 	@Override
 	public BookDto addBook(BookDto bookDto, String nameCategory) {
@@ -115,5 +110,16 @@ public class BookServiceImpl implements BookService {
 		return mapper.map(book, BookDto.class);
 	}
 
-	
+	private void mapping() {
+		this.mapper.addMappings(new PropertyMap<Book, BookDto>() {
+			@Override
+			protected void configure() {
+				skip(source.getCategory());
+				skip(source.getReviews());
+				
+				map().setNameCategory(source.getCategory().getName());
+				
+			}
+		});
+	}
 }
