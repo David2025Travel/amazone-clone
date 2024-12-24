@@ -14,7 +14,7 @@ public class OrderDto {
 
 	private Long id; 
 
-    private String email; 
+    private String emailUser; 
 
     private List<OrderItemDto> items; 
 

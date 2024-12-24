@@ -53,7 +53,7 @@ public class OrderServiceImpl  implements OrderService{
 		Order order = mapper.map(orderDto, Order.class);
 
         
-        User user = clientRepo.findByEmail(orderDto.getEmail())
+        User user = clientRepo.findByEmail(orderDto.getEmailUser())
                 .orElseThrow(() -> new EntityNotFoundException("User not found"));
         order.setUser(user);
 
