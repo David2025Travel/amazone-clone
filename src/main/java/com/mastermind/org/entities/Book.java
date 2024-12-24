@@ -52,6 +52,8 @@ public class Book {
 	
 	private int totalPages ;
 	
+	private int quantity ;
+	
 	@ManyToOne
 	private Category category ;
 	
