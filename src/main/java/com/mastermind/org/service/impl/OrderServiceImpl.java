@@ -4,13 +4,12 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import org.modelmapper.ModelMapper;
-import org.modelmapper.PropertyMap;
 import org.springframework.stereotype.Service;
 
 import com.mastermind.org.entities.Book;
+import com.mastermind.org.entities.Client;
 import com.mastermind.org.entities.Order;
 import com.mastermind.org.entities.OrderItem;
-import com.mastermind.org.entities.User;
 import com.mastermind.org.playload.Dto.OrderDto;
 import com.mastermind.org.playload.Dto.OrderItemDto;
 import com.mastermind.org.repository.BookRepo;
@@ -19,8 +18,10 @@ import com.mastermind.org.repository.OrderRepository;
 import com.mastermind.org.service.OrderService;
 
 import jakarta.persistence.EntityNotFoundException;
+import lombok.extern.slf4j.Slf4j;
 
 @Service
+@Slf4j
 public class OrderServiceImpl  implements OrderService{
 
 	private final ModelMapper mapper ;
@@ -31,11 +32,7 @@ public class OrderServiceImpl  implements OrderService{
 	
 	private final ClientRepo clientRepo ;
 	
-	public OrderServiceImpl(
-			ModelMapper mapper, 
-			OrderRepository orderRepo, 
-			BookRepo bookRepo,
-			ClientRepo clientRepo) {
+	public OrderServiceImpl(ModelMapper mapper, OrderRepository orderRepo, BookRepo bookRepo,ClientRepo clientRepo) {
 		
 		this.clientRepo = clientRepo ;
 		this.mapper=mapper;
@@ -50,10 +47,11 @@ public class OrderServiceImpl  implements OrderService{
 	@Override
 	public void addOrder(OrderDto orderDto) {
 		
+		
 		Order order = mapper.map(orderDto, Order.class);
-
+		
         
-        User user = clientRepo.findByEmail(orderDto.getEmailUser())
+        Client user = clientRepo.findByEmail(orderDto.getEmailUser())
                 .orElseThrow(() -> new EntityNotFoundException("User not found"));
         order.setUser(user);
 
